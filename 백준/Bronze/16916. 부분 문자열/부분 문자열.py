@@ -1,7 +1,7 @@
 S = input()
 P = input()
 
-if S.count(P) >= 1:
+if P in S:
   print(1)
 else:
   print(0)
