@@ -2,11 +2,11 @@ def kaprekar(n):
   n = n + sum(map(int, str(n)))
   return n
 
-arr = []
+num = set()
 
 for i in range(1, 10001):
-  arr.append(kaprekar(i))
+  num.add(kaprekar(i))
 
 for i in range(1, 10001):
-  if i not in arr:
+  if i not in num:
     print(i)
