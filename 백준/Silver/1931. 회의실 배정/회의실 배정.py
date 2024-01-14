@@ -7,10 +7,8 @@ end_time = 0
 res = 0
 
 for i in meet:
-  start, end = i
-
-  if start >= end_time:
+  if end_time <= i[0]:
+    end_time = i[1]
     res += 1
-    end_time = end
 
 print(res)
