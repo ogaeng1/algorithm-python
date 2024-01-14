@@ -1,5 +1,11 @@
-n = int(input())
-meet = [list(map(int, input().split())) for _ in range(n)]
+import sys
+
+n = int(sys.stdin.readline())
+meet = []
+
+for _ in range(n):
+  start, end = map(int, sys.stdin.readline().split())
+  meet.append((start, end))
 
 meet.sort(key=lambda x: (x[1], x[0]))
 
