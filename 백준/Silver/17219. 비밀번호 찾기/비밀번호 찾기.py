@@ -5,9 +5,9 @@ n, m = map(int, stdin.readline().split())
 dic = dict()
 
 for _ in range(n):
-  site = input().split()
-  dic[site[0]] = site[1]
+  site, password = stdin.readline().split()
+  dic[site] = password
 
 for _ in range(m):
-  password = input()
+  password = stdin.readline().strip()
   print(dic[password])
