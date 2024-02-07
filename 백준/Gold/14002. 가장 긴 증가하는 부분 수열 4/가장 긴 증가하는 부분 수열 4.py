@@ -1,22 +1,25 @@
-n = int(input())
-A = list(map(int, input().split()))
+from sys import stdin
+from bisect import bisect_left
 
-dp = [1] * n
+n = int(stdin.readline())
+A = list(map(int, stdin.readline().split()))
+arr, temp = [], []
 
-for i in range(1, n):
-  for j in range(i):
-    if A[j] < A[i]:
-      dp[i] = max(dp[i], dp[j]+1)
+for i in A:
+  if not arr or arr[-1] < i:
+    arr.append(i)
+    temp.append((len(arr)-1, i))
+  else:
+    arr[bisect_left(arr, i)] = i
+    temp.append((bisect_left(arr, i), i))
 
-length = max(dp)
-result_A = []
+res = []
+idx = len(arr)-1
 
-for i in range(n-1, -1, -1):
-  if dp[i] == length:
-    result_A.append(A[i])
-    length -= 1
+for i in range(len(temp)-1, -1, -1):
+  if temp[i][0] == idx:
+    res.append(temp[i][1])
+    idx -= 1
 
-result_A.reverse()
-
-print(max(dp))
-print(*result_A)
+print(len(arr))
+print(*res[::-1])
