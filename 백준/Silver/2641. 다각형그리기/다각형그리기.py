@@ -8,7 +8,6 @@ for i in m_list:
     r_mlist = list(map(lambda x: {1: 3, 2: 4, 3: 1, 4: 2}[x], i))[::-1]
     if base == i or base == r_mlist:
         result.append(i)
-        continue
 
     for j in range(1, len(base)):
         tmp = i[j:] + i[:j]
