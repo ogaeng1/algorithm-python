@@ -18,7 +18,10 @@ for _ in range(t):
         break
       doc.popleft()
       res += 1
-
-    m = m - 1 if m > 0 else len(doc) - 1
+    
+    if m > 0:
+        m -= 1
+    else:
+        m = len(doc) - 1
 
   print(res)
