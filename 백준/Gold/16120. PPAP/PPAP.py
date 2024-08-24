@@ -1,12 +1,17 @@
-PPAP = input()
+import sys
+input = sys.stdin.readline
+
+ppapString = input().strip()
 stack = []
 
-for i in PPAP:
-  stack.append(i)
+for c in ppapString:
+    stack.append(c)
+    if len(stack) >= 4 and ''.join(stack[-4:]) == "PPAP":
+        stack.pop()
+        stack.pop()
+        stack.pop()
+        stack.pop()
+        stack.append('P')
 
-  if len(stack) >= 4 and stack[-4:] == ['P', 'P', 'A', 'P']:
-    stack.pop()
-    stack.pop()
-    stack.pop()
-
-print('PPAP' if len(stack) == 1 and stack[0] == 'P' else 'NP')
+ppap = "".join(stack)
+print("PPAP" if ppap == "P" else "NP")
